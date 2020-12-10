@@ -7,17 +7,10 @@ import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 
-abstract class BaseFragment<VM : ViewModel, VS : Mvi.MviViewState, I : Mvi.MviIntent> : Fragment(),
-    MviComponent<VS, I> {
+abstract class BaseFragment : Fragment() {
 
     abstract fun getContent(): @Composable () -> Unit
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        parentFragmentManager.registerFragmentLifecycleCallbacks(MviLifecycleListener(this), false)
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
