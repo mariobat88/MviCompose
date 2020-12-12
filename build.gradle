@@ -1,17 +1,18 @@
+import dependencies.plugin
+import dependencies.versions
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.20"
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.0-beta01"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        classpath plugin.android.gradle
+        classpath plugin.android.hilt
+        classpath plugin.kotlin.gradle
 
         // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // in the individual module build.gradle.kts files
     }
 }
 
@@ -20,6 +21,30 @@ allprojects {
         google()
         jcenter()
     }
+
+    plugins.withType(com.android.build.gradle.BasePlugin).configureEach { plugin ->
+        def extension = plugin.extension
+
+        extension.compileSdkVersion = versions.compileSdk
+        extension.defaultConfig.minSdkVersion = versions.minSdk
+
+        extension.compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach { task ->
+        task.sourceCompatibility = JavaVersion.VERSION_1_8
+        task.targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile).configureEach { task ->
+        task.kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
 }
 
 task clean(type: Delete) {

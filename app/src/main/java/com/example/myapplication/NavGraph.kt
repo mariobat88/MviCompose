@@ -1,4 +1,4 @@
-package com.example.myapplication.activity
+package com.example.myapplication
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -6,19 +6,26 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.ui.tooling.preview.Preview
+import com.example.myapplication.MainDestinations.DETAILS
+import com.example.myapplication.MainDestinations.HOME
+import com.example.myapplication.activity.HomeComposable
 import com.example.myapplication.main.DetailsCompose
 
+object MainDestinations {
+    const val HOME = "home"
+    const val DETAILS = "details"
+}
 
 @Composable
-fun MainCompose() {
+fun NavGraph() {
     val navController = rememberNavController()
 
     MaterialTheme {
-        NavHost(navController = navController, startDestination = "home") {
-            composable("home") {
+        NavHost(navController = navController, startDestination = HOME) {
+            composable(HOME) {
                 HomeComposable(navController)
             }
-            composable("details") {
+            composable(DETAILS) {
                 DetailsCompose()
             }
         }
@@ -28,5 +35,5 @@ fun MainCompose() {
 @Preview
 @Composable
 fun DefaultPreview() {
-    MainCompose()
+    NavGraph()
 }

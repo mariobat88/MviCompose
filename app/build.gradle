@@ -1,3 +1,5 @@
+import dependencies.deps
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -50,12 +52,12 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 
 dependencies{
     implementation project(':framework')
-    implementation 'com.google.android.material:material:1.2.1'
-
-    api 'androidx.compose.ui:ui:1.0.0-alpha08'
-
+    //For some reason we can't use hilt via deps
     implementation "com.google.dagger:hilt-android:2.28-alpha"
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+
+    //We need material for Theming
+    implementation deps.android.material
 
     kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'

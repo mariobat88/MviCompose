@@ -23,14 +23,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun DetailsCompose() {
-    val coroutineScope = rememberCoroutineScope()
-    val intentsChannel = Channel<DetailsMvi.Intent>(Channel.UNLIMITED)
     val viewModel: DetailsViewModel = viewModel()
-
-    coroutineScope.launch {
-        viewModel.bind(intentsChannel.consumeAsFlow())
-    }
-
     val viewState = viewModel.viewState.collectAsState().value
 
     val image = imageResource(R.drawable.header)

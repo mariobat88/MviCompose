@@ -1,14 +1,18 @@
 package com.example.myapplication.activity
 
+import android.graphics.Paint
+import android.view.Gravity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.navigate
 import androidx.compose.ui.draw.clip
@@ -27,13 +31,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeComposable(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
-    val intentsChannel = Channel<MainMvi.Intent>(Channel.UNLIMITED)
     val viewModel: MainViewModel = viewModel()
-
-    coroutineScope.launch {
-        viewModel.bind(intentsChannel.consumeAsFlow())
-    }
-
     val viewState = viewModel.viewState.collectAsState().value
 
     val image = imageResource(R.drawable.header)
@@ -66,16 +64,28 @@ fun HomeComposable(navController: NavController) {
         )
         Button(
             onClick = {
-                navController.navigate("details") {
-                    //This is not working
-                    anim {
-                        enter = android.R.anim.fade_in
-                        exit = android.R.anim.fade_out
+                coroutineScope.launch {
+                    viewModel.longWork()
+                    navController.navigate("details") {
+                        //This is not working
+                        anim {
+                            enter = android.R.anim.fade_in
+                            exit = android.R.anim.fade_out
+                        }
                     }
                 }
             }
         ) {
             Text(text = "Click me")
+        }
+    }
+
+    if (viewState.isLoading) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            CircularProgressIndicator()
         }
     }
 }
