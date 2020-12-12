@@ -1,4 +1,6 @@
+import dependencies.app
 import dependencies.deps
+import dependencies.versions
 
 plugins {
     id 'com.android.application'
@@ -8,12 +10,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        applicationId "com.example.myapplication"
-        minSdkVersion 21
-        targetSdkVersion 30
+        applicationId app.applicationId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
 

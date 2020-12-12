@@ -2,6 +2,10 @@
 
 package dependencies
 
+object app {
+    val applicationId = "com.example.myapplication"
+}
+
 object versions {
     val buildTools = "28.0.3"
 
