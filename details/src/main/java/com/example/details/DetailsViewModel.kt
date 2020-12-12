@@ -1,4 +1,4 @@
-package com.example.myapplication.main
+package com.example.details
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel

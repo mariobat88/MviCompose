@@ -2,6 +2,9 @@ import dependencies.plugin
 import dependencies.versions
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        kotlin_version = '1.4.10'
+    }
     repositories {
         google()
         jcenter()
@@ -10,6 +13,7 @@ buildscript {
         classpath plugin.android.gradle
         classpath plugin.android.hilt
         classpath plugin.kotlin.gradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
@@ -32,6 +36,16 @@ allprojects {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
+
+        extension.buildFeatures {
+            // Enables Jetpack Compose for this module
+            compose true
+        }
+
+        extension.composeOptions {
+            kotlinCompilerVersion '1.4.20'
+            kotlinCompilerExtensionVersion '1.0.0-alpha08'
+        }
     }
 
     tasks.withType(JavaCompile).configureEach { task ->
@@ -45,6 +59,12 @@ allprojects {
         }
     }
 
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "1.8"
+            freeCompilerArgs += ["-Xallow-jvm-ir-dependencies", "-Xskip-prerelease-check"]
+        }
+    }
 }
 
 task clean(type: Delete) {

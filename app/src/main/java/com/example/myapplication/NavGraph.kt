@@ -9,7 +9,7 @@ import androidx.ui.tooling.preview.Preview
 import com.example.myapplication.MainDestinations.DETAILS
 import com.example.myapplication.MainDestinations.HOME
 import com.example.myapplication.activity.HomeComposable
-import com.example.myapplication.main.DetailsCompose
+import com.example.details.DetailsCompose
 
 object MainDestinations {
     const val HOME = "home"
@@ -26,7 +26,7 @@ fun NavGraph() {
                 HomeComposable(navController)
             }
             composable(DETAILS) {
-                DetailsCompose()
+                com.example.details.DetailsCompose()
             }
         }
     }
