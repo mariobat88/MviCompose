@@ -13,9 +13,3 @@ class DetailsViewModel @ViewModelInject constructor(
 
     override val viewState = MutableStateFlow(DetailsMvi.ViewState())
 }
-
-private suspend fun longWork() {
-    return withContext(Dispatchers.IO) {
-        Thread.sleep(2000)
-    }
-}
