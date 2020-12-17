@@ -13,8 +13,6 @@ buildscript {
         classpath plugin.android.gradle
         classpath plugin.android.hilt
         classpath plugin.kotlin.gradle
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
     }
@@ -24,46 +22,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-    }
-
-    plugins.withType(com.android.build.gradle.BasePlugin).configureEach { plugin ->
-        def extension = plugin.extension
-
-        extension.compileSdkVersion = versions.compileSdk
-        extension.defaultConfig.minSdkVersion = versions.minSdk
-
-        extension.compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
-        }
-
-        extension.buildFeatures {
-            // Enables Jetpack Compose for this module
-            compose true
-        }
-
-        extension.composeOptions {
-            kotlinCompilerVersion '1.4.20'
-            kotlinCompilerExtensionVersion '1.0.0-alpha08'
-        }
-    }
-
-    tasks.withType(JavaCompile).configureEach { task ->
-        task.sourceCompatibility = JavaVersion.VERSION_1_8
-        task.targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile).configureEach { task ->
-        task.kotlinOptions {
-            jvmTarget = "1.8"
-        }
-    }
-
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            jvmTarget = "1.8"
-            freeCompilerArgs += ["-Xallow-jvm-ir-dependencies", "-Xskip-prerelease-check"]
-        }
     }
 }
 

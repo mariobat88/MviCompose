@@ -17,7 +17,9 @@ object MainDestinations {
 }
 
 @Composable
-fun NavGraph() {
+fun NavGraph(
+
+) {
     val navController = rememberNavController()
 
     MaterialTheme {
@@ -26,7 +28,7 @@ fun NavGraph() {
                 HomeComposable(navController)
             }
             composable(DETAILS) {
-                com.example.details.DetailsCompose()
+                DetailsCompose()
             }
         }
     }

@@ -3,12 +3,12 @@ package com.example.details
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import com.appslabs.framework.MviViewModel
-import kotlinx.coroutines.Dispatchers
+import com.example.network.SpeedrunService
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class DetailsViewModel @ViewModelInject constructor(
-
+class DetailsViewModel @Inject constructor(
+    private val speedrunService: SpeedrunService
 ) : ViewModel(), MviViewModel<DetailsMvi.ViewState> {
 
     override val viewState = MutableStateFlow(DetailsMvi.ViewState())

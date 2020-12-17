@@ -7,13 +7,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.AmbientContext
+import androidx.compose.ui.platform.AmbientViewModelStoreOwner
+import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
+import com.appslabs.framework.viewmodel.viewModelFromComponent
+import com.example.details.di.DetailsComponent
 
 @Composable
 fun DetailsCompose() {
-    val viewModel: DetailsViewModel = viewModel()
+    val viewModel: DetailsViewModel = viewModelFromComponent(DetailsComponent(AmbientContext.current.applicationContext))
     val viewState = viewModel.viewState.collectAsState().value
 
     MaterialTheme {

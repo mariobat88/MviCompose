@@ -4,15 +4,15 @@ package dependencies
 
 object app {
     val applicationId = "com.example.myapplication"
-}
-
-object versions {
     val buildTools = "28.0.3"
 
     val compileSdk = 30
     val minSdk = 21
     val targetSdk = compileSdk
+}
 
+object versions {
+    val appcompat = "1.2.0"
     val compose = "1.0.0-alpha08"
     val composeTooling = "1.0.0-alpha07"
     val composeNavigation = "1.0.0-alpha03"
@@ -21,6 +21,7 @@ object versions {
     val hiltViewModel = "1.0.0-alpha02"
     val kotlin = "1.4.20"
     val material = "1.2.1"
+    val retrofit = "2.9.0"
 }
 
 object plugin {
@@ -38,6 +39,7 @@ object deps {
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     object android {
+        val appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
         val material = "com.google.android.material:material:${versions.material}"
     }
 
@@ -55,6 +57,10 @@ object deps {
     object hilt {
         val core = "com.google.dagger:hilt-android:${versions.hilt}}"
         val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hiltViewModel}}"
+    }
 
+    object retrofit {
+        val core = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+        val moshi = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
     }
 }
