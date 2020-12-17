@@ -1,4 +1,4 @@
-package com.example.myapplication.di
+package com.example.network.di
 
 import com.example.network.SpeedrunService
 import dagger.Lazy

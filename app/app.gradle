@@ -54,11 +54,12 @@ android {
 }
 
 dependencies {
-    implementation project(':features:details')
+    implementation project(':features:runs')
+    implementation project(':data:datasource:games')
+    implementation project(':data:repo:games')
     implementation project(':network')
 
     implementation deps.retrofit.core
-    implementation deps.retrofit.moshi
 
     implementation project(':framework')
     //For some reason we can't use hilt via deps

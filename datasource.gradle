@@ -3,7 +3,6 @@ import dependencies.app
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply from: "$project.rootDir/feature.gradle"
 
 android {
     compileSdkVersion app.compileSdk
@@ -15,16 +14,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildFeatures {
-            // Enables Jetpack Compose for this module
-            compose true
-        }
-
-        composeOptions {
-            kotlinCompilerVersion '1.4.20'
-            kotlinCompilerExtensionVersion '1.0.0-alpha08'
-        }
     }
 
     buildTypes {
@@ -42,5 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+}
 
+dependencies {
+    implementation project(":network")
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+
+    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
 }

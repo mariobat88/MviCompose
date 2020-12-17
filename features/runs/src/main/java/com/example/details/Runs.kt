@@ -8,18 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.AmbientContext
-import androidx.compose.ui.platform.AmbientViewModelStoreOwner
-import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.viewModel
 import com.appslabs.framework.viewmodel.viewModelFromComponent
-import com.example.details.di.DetailsComponent
+import com.example.details.di.RunsComponent
 
 @Composable
-fun DetailsCompose() {
-    val viewModel: DetailsViewModel = viewModelFromComponent(DetailsComponent(AmbientContext.current.applicationContext))
+fun Runs() {
+    val viewModel: RunsViewModel = viewModelFromComponent(RunsComponent(AmbientContext.current.applicationContext))
     val viewState = viewModel.viewState.collectAsState().value
+
 
     MaterialTheme {
         Column(modifier = Modifier.padding(16.dp)) {

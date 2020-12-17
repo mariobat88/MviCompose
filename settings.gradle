@@ -1,6 +1,17 @@
 rootProject.name = "app"
 
 include ':app'
-include ':features:details'
+include ':data:datasource:games'
+include ':data:repo:games'
+include ':features:runs'
 include ':framework'
 include ':network'
+
+def configureBuildFiles(ProjectDescriptor project) {
+    project.children.each {
+        child ->
+            child.buildFileName = "${child.name}.gradle"
+            configureBuildFiles(child)
+    }
+}
+configureBuildFiles(rootProject)

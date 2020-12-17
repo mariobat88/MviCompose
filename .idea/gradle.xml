@@ -12,8 +12,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildsrc" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/datasource" />
+            <option value="$PROJECT_DIR$/data/datasource/games" />
+            <option value="$PROJECT_DIR$/data/repo" />
+            <option value="$PROJECT_DIR$/data/repo/games" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/details" />
+            <option value="$PROJECT_DIR$/features/runs" />
             <option value="$PROJECT_DIR$/framework" />
             <option value="$PROJECT_DIR$/network" />
           </set>
@@ -21,6 +26,5 @@
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
-    <option name="offlineMode" value="true" />
   </component>
 </project>

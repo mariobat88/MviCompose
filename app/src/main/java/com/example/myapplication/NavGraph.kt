@@ -1,25 +1,14 @@
 package com.example.myapplication
 
-import android.graphics.drawable.shapes.Shape
-import androidx.compose.foundation.background
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.*
-import androidx.ui.tooling.preview.Preview
-import com.example.myapplication.MainDestinations.DETAILS
-import com.example.myapplication.MainDestinations.HOME
+import com.example.details.Runs
 import com.example.myapplication.activity.HomeComposable
-import com.example.details.DetailsCompose
 import com.example.myapplication.activity.Screen
 import com.example.myapplication.activity.items
 
@@ -57,13 +46,7 @@ fun NavGraph(
     ) {
         NavHost(navController, startDestination = Screen.Games.route) {
             composable(Screen.Games.route) { HomeComposable(navController) }
-            composable(Screen.Runs.route) { DetailsCompose() }
+            composable(Screen.Runs.route) { Runs() }
         }
     }
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    NavGraph()
 }

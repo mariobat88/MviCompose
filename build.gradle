@@ -1,10 +1,8 @@
 import dependencies.plugin
 import dependencies.versions
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext {
-        kotlin_version = '1.4.10'
-    }
     repositories {
         google()
         jcenter()
@@ -22,6 +20,15 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+//This is so we can name our build.gradle files same name as modules
+subprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            freeCompilerArgs += ['-module-name', project.path.replace(":", "_")] // Replace ":" since Win OS can't have that in file names
+        }
     }
 }
 

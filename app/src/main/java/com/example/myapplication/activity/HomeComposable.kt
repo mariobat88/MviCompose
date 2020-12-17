@@ -1,7 +1,5 @@
 package com.example.myapplication.activity
 
-import android.graphics.Paint
-import android.view.Gravity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,7 +12,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.navigate
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
@@ -22,10 +19,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavOptionsBuilder
+import androidx.navigation.compose.navigate
 import com.example.myapplication.R
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
 @Composable
@@ -66,7 +61,7 @@ fun HomeComposable(navController: NavController) {
             onClick = {
                 coroutineScope.launch {
                     viewModel.longWork()
-                    navController.navigate("details") {
+                    navController.navigate(Screen.Runs.route) {
                         //This is not working
                         anim {
                             enter = android.R.anim.fade_in
