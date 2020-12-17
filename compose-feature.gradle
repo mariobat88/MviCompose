@@ -3,7 +3,6 @@ import dependencies.app
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 apply from: "$project.rootDir/feature.gradle"
 
 android {

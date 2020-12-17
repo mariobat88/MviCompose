@@ -54,7 +54,7 @@ android {
 }
 
 dependencies {
-    implementation project(':details')
+    implementation project(':features:details')
     implementation project(':network')
 
     implementation deps.retrofit.core

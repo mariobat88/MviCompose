@@ -1,6 +1,6 @@
 rootProject.name = "app"
 
 include ':app'
-include ':details'
+include ':features:details'
 include ':framework'
 include ':network'
