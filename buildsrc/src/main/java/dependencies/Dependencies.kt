@@ -16,6 +16,7 @@ object versions {
     val compose = "1.0.0-alpha08"
     val composeTooling = "1.0.0-alpha07"
     val composeNavigation = "1.0.0-alpha03"
+    val coroutines = "1.4.2"
     val gradle = "4.2.0-beta01"
     val hilt = "2.28-alpha"
     val hiltViewModel = "1.0.0-alpha02"
@@ -41,6 +42,10 @@ object deps {
     object android {
         val appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
         val material = "com.google.android.material:material:${versions.material}"
+    }
+
+    object coroutines {
+        val core = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
     }
 
     object compose {

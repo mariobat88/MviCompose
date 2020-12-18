@@ -1,5 +1,6 @@
 package com.example.details
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.appslabs.framework.MviViewModel
 import com.example.games.GamesRepository
@@ -14,13 +15,9 @@ class RunsViewModel @Inject constructor(
 
     override val viewState = MutableStateFlow(RunsMvi.ViewState())
 
-    init {
-        coroutineScope {
-            launch {
-                gamesRepository.getGames()
-            }
-        }
-
+    suspend fun loadGames() {
+        val games = gamesRepository.getGames()
+        Log.d("BATBAT", games.toString())
     }
 
 }

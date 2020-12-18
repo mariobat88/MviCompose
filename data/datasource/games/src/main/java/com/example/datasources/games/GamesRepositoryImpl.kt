@@ -2,6 +2,8 @@ package com.example.datasources.games
 
 import com.example.games.GamesRepository
 import com.example.network.SpeedrunService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class GamesRepositoryImpl @Inject constructor(
@@ -9,7 +11,9 @@ class GamesRepositoryImpl @Inject constructor(
 ) : GamesRepository {
 
     override suspend fun getGames(): Any {
-        return speedrunService.getGames(0)
+        return withContext(Dispatchers.IO) {
+            speedrunService.getGames(0).execute()
+        }
     }
 
 }
