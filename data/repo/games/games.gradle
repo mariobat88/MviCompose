@@ -1,1 +1,6 @@
 apply from: "$project.rootDir/feature.gradle"
+
+dependencies {
+    api project(':network')
+    api project(':data:repo:common')
+}

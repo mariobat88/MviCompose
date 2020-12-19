@@ -1,5 +1,6 @@
 package com.example.network
 
+import com.example.network.model.GamesResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -7,5 +8,5 @@ import retrofit2.http.Query
 interface SpeedrunService {
 
     @GET("/games")
-    fun getGames(@Query("offset") offset: Int): Call<Any>
+    fun getGames(@Query("offset") offset: Int): Call<GamesResponse>
 }
