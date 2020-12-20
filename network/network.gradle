@@ -4,6 +4,7 @@ apply from: "$project.rootDir/feature.gradle"
 
 dependencies {
     implementation deps.retrofit.core
+    implementation deps.retrofit.logging
     implementation deps.retrofit.moshi
     implementation "com.google.dagger:hilt-android:2.28-alpha"
 

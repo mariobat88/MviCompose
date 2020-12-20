@@ -1,0 +1,10 @@
+com/example/details/BuildConfig.java
+ com.example.details.BuildConfig
+com/example/details/di/DaggerRunsComponent.java
+ com.example.details.di.DaggerRunsComponent
+ com.example.details.di.DaggerRunsComponent$1
+ com.example.details.di.DaggerRunsComponent$Factory
+com/example/details/RunsViewModel_Factory.java
+ com.example.details.RunsViewModel_Factory
+hilt_aggregated_deps/com_example_details_di_RunsModuleDependenciesModuleDeps.java
+ hilt_aggregated_deps.com_example_details_di_RunsModuleDependenciesModuleDeps

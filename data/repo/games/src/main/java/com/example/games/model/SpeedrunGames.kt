@@ -1,5 +1,6 @@
 package com.example.games.model
 
+import com.example.common.model.Asset
 import com.example.common.model.LinksItem
 
 data class SpeedrunGames(
@@ -35,12 +36,6 @@ data class SpeedrunGames(
         val released: Int? = null,
     ) {
 
-        data class Background(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
-        )
-
         data class Ruleset(
             val emulatorsAllowed: Boolean? = null,
             val defaultTime: String? = null,
@@ -51,54 +46,24 @@ data class SpeedrunGames(
         )
 
         data class Assets(
-            val coverSmall: Cover? = null,
-            val trophy1st: Trophy? = null,
-            val background: Background? = null,
-            val coverMedium: Cover? = null,
-            val icon: Icon? = null,
-            val trophy2nd: Trophy? = null,
-            val trophy4th: Trophy? = null,
-            val logo: Logo? = null,
-            val trophy3rd: Trophy? = null,
-            val foreground: Foreground? = null,
-            val coverTiny: Cover? = null,
-            val coverLarge: Cover? = null
-        )
-
-        data class Cover(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
-        )
-
-        data class Icon(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
+            val coverSmall: Asset? = null,
+            val trophy1st: Asset? = null,
+            val background: Asset? = null,
+            val coverMedium: Asset? = null,
+            val icon: Asset? = null,
+            val trophy2nd: Asset? = null,
+            val trophy4th: Asset? = null,
+            val logo: Asset? = null,
+            val trophy3rd: Asset? = null,
+            val foreground: Asset? = null,
+            val coverTiny: Asset? = null,
+            val coverLarge: Asset? = null
         )
 
         data class Names(
             val japanese: String? = null,
             val twitch: String? = null,
             val international: String? = null
-        )
-
-        data class Trophy(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
-        )
-
-        data class Logo(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
-        )
-
-        data class Foreground(
-            val width: Int? = null,
-            val uri: String? = null,
-            val height: Int? = null
         )
     }
 }

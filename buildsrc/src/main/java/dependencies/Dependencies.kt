@@ -17,12 +17,13 @@ object versions {
     val composeTooling = "1.0.0-alpha07"
     val composeNavigation = "1.0.0-alpha03"
     val coroutines = "1.4.2"
-    val gradle = "4.2.0-beta01"
+    val gradle = "4.2.0-beta02"
     val hilt = "2.28-alpha"
     val hiltViewModel = "1.0.0-alpha02"
     val kotlin = "1.4.20"
     val material = "1.2.1"
     val retrofit = "2.9.0"
+    val retrofitInterceptor = "4.9.0"
 }
 
 object plugin {
@@ -66,6 +67,7 @@ object deps {
 
     object retrofit {
         val core = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+        val logging = "com.squareup.okhttp3:logging-interceptor:${versions.retrofitInterceptor}"
         val moshi = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
     }
 }

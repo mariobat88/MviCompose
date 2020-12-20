@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface SpeedrunService {
 
-    @GET("/games")
+    @GET("/api/v1/games")
     fun getGames(@Query("offset") offset: Int): Call<GamesResponse>
 }

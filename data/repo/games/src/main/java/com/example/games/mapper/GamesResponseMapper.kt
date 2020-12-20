@@ -1,5 +1,6 @@
 package com.example.games.mapper
 
+import com.example.common.model.Asset
 import com.example.common.model.LinksItem
 import com.example.games.model.SpeedrunGames
 import com.example.network.model.GamesResponse
@@ -8,7 +9,7 @@ import com.example.network.model.commons.LinksItemResponse
 fun GamesResponse.toSpeedrunGames(): SpeedrunGames {
     return SpeedrunGames(
         pagination = pagination?.toPagination(),
-        data =
+        data = data?.map { it?.toDataItem() }
     )
 }
 
@@ -40,7 +41,7 @@ private fun GamesResponse.DataItem.toDataItem(): SpeedrunGames.DataItem {
         romhack = romhack,
         gametypes = gametypes,
         names = names?.toNames(),
-        assets = assets,
+        assets = assets?.toAssets(),
         genres = genres,
         engines = engines,
         weblink = weblink,
@@ -77,10 +78,10 @@ private fun GamesResponse.DataItem.Assets.toAssets(): SpeedrunGames.DataItem.Ass
         trophy1st = trophy1st?.toTrophy(),
         background = background?.toBackground(),
         coverMedium = coverMedium?.toCover(),
-        icon = icon,
+        icon = icon?.toIcon(),
         trophy2nd = trophy2nd?.toTrophy(),
         trophy4th = trophy4th?.toTrophy(),
-        logo = logo,
+        logo = logo?.toLogo(),
         trophy3rd = trophy3rd?.toTrophy(),
         foreground = foreground?.toForeground(),
         coverTiny = coverTiny?.toCover(),
@@ -88,32 +89,48 @@ private fun GamesResponse.DataItem.Assets.toAssets(): SpeedrunGames.DataItem.Ass
     )
 }
 
-private fun GamesResponse.DataItem.Cover.toCover(): SpeedrunGames.DataItem.Cover {
-    return SpeedrunGames.DataItem.Cover(
+private fun GamesResponse.DataItem.Cover.toCover(): Asset {
+    return Asset(
         width = width,
         uri = uri,
         height = height
     )
 }
 
-private fun GamesResponse.DataItem.Trophy.toTrophy(): SpeedrunGames.DataItem.Trophy {
-    return SpeedrunGames.DataItem.Trophy(
+private fun GamesResponse.DataItem.Trophy.toTrophy(): Asset {
+    return Asset(
         width = width,
         uri = uri,
         height = height
     )
 }
 
-private fun GamesResponse.DataItem.Foreground.toForeground(): SpeedrunGames.DataItem.Foreground {
-    return SpeedrunGames.DataItem.Foreground(
+private fun GamesResponse.DataItem.Foreground.toForeground(): Asset {
+    return Asset(
         width = width,
         uri = uri,
         height = height
     )
 }
 
-private fun GamesResponse.DataItem.Background.toBackground(): SpeedrunGames.DataItem.Background {
-    return SpeedrunGames.DataItem.Background(
+private fun GamesResponse.DataItem.Background.toBackground(): Asset {
+    return Asset(
+        width = width,
+        uri = uri,
+        height = height
+    )
+}
+
+private fun GamesResponse.DataItem.Icon.toIcon(): Asset {
+    return Asset(
+        width = width,
+        uri = uri,
+        height = height
+    )
+}
+
+private fun GamesResponse.DataItem.Logo.toLogo(): Asset {
+    return Asset(
         width = width,
         uri = uri,
         height = height

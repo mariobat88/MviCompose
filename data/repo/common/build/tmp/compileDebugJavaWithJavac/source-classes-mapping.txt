@@ -1,0 +1,2 @@
+com/example/repo/common/BuildConfig.java
+ com.example.repo.common.BuildConfig
