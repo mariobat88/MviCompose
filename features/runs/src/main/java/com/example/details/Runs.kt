@@ -3,7 +3,9 @@ package com.example.details
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.preferredHeight
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -28,12 +30,13 @@ fun Runs() {
     MaterialTheme {
         if (viewState.games?.isNullOrEmpty() == false) {
             LazyColumnFor(items = viewState.games) {
+                val asset = it.assets?.getCover()
 
                 val imageModifier = Modifier
-                    .preferredHeight(180.dp)
-                    .fillMaxWidth()
+                    .width(150.dp)
+                    .height(150.dp)
 
-                val image = loadImage(it.assets?.getCover()?.uri ?: "", imageModifier)
+                val image = loadImage(asset?.uri ?: "", asset?.width, asset?.height, imageModifier)
                 image.value?.let { bitmap ->
                     Image(
                         bitmap = bitmap.asImageBitmap(),
