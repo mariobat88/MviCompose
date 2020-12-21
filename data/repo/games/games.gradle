@@ -1,6 +1,1 @@
-apply from: "$project.rootDir/feature.gradle"
-
-dependencies {
-    implementation project(':network')
-    api project(':data:repo:common')
-}
+apply from: "$project.rootDir/repo.gradle"
