@@ -1,10 +1,7 @@
-package com.example.details
+package com.example.games
 
-import android.util.Log
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.preferredHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.MaterialTheme
@@ -18,13 +15,13 @@ import androidx.compose.ui.platform.AmbientContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.appslabs.framework.viewmodel.viewModelFromComponent
-import com.example.details.di.RunsComponent
+import com.example.games.di.GamesComponent
 import com.example.ui.loadImage
 
 @Composable
-fun Runs() {
-    val viewModel: RunsViewModel =
-        viewModelFromComponent(RunsComponent(AmbientContext.current.applicationContext))
+fun GamesScreen() {
+    val viewModel: GamesViewModel =
+        viewModelFromComponent(GamesComponent(AmbientContext.current.applicationContext))
     val viewState = viewModel.viewState.collectAsState().value
 
     MaterialTheme {

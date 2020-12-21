@@ -13,10 +13,10 @@ import javax.annotation.Generated;
     "rawtypes"
 })
 public final class DaggerRunsComponent implements RunsComponent {
-  private final RunsModuleDependencies runsModuleDependencies;
+  private final RunsDependencies runsDependencies;
 
-  private DaggerRunsComponent(RunsModuleDependencies runsModuleDependenciesParam) {
-    this.runsModuleDependencies = runsModuleDependenciesParam;
+  private DaggerRunsComponent(RunsDependencies runsDependenciesParam) {
+    this.runsDependencies = runsDependenciesParam;
   }
 
   public static RunsComponent.Factory factory() {
@@ -25,14 +25,14 @@ public final class DaggerRunsComponent implements RunsComponent {
 
   @Override
   public RunsViewModel viewModel() {
-    return new RunsViewModel(Preconditions.checkNotNull(runsModuleDependencies.gamesRepository(), "Cannot return null from a non-@Nullable component method"));
+    return new RunsViewModel(Preconditions.checkNotNull(runsDependencies.gamesRepository(), "Cannot return null from a non-@Nullable component method"));
   }
 
   private static final class Factory implements RunsComponent.Factory {
     @Override
-    public RunsComponent create(RunsModuleDependencies runsModuleDependencies) {
-      Preconditions.checkNotNull(runsModuleDependencies);
-      return new DaggerRunsComponent(runsModuleDependencies);
+    public RunsComponent create(RunsDependencies runsDependencies) {
+      Preconditions.checkNotNull(runsDependencies);
+      return new DaggerRunsComponent(runsDependencies);
     }
   }
 }

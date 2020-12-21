@@ -6,25 +6,24 @@ import com.example.details.RunsViewModel
 import dagger.Component
 import dagger.hilt.android.EntryPointAccessors
 
-@Component(dependencies = [RunsModuleDependencies::class])
+@Component(dependencies = [RunsDependencies::class])
 interface RunsComponent : ViewModelComponent<RunsViewModel> {
 
     @Component.Factory
     interface Factory {
         fun create(
-            runsModuleDependencies: RunsModuleDependencies
+            runsDependencies: RunsDependencies
         ): RunsComponent
     }
 
     companion object {
         operator fun invoke(applicationContext: Context): RunsComponent {
             return DaggerRunsComponent.factory().create(
-                runsModuleDependencies = EntryPointAccessors.fromApplication(
+                runsDependencies = EntryPointAccessors.fromApplication(
                     applicationContext,
-                    RunsModuleDependencies::class.java
+                    RunsDependencies::class.java
                 )
             )
         }
     }
-
 }

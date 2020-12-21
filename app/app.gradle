@@ -54,7 +54,8 @@ android {
 }
 
 dependencies {
-    implementation project(':features:runs')
+    implementation project(':feature:games')
+    implementation project(':feature:runs')
     implementation project(':data:datasource:games')
     implementation project(':data:repo:games')
     implementation project(':network')

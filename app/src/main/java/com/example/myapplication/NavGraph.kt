@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.*
-import com.example.details.Runs
-import com.example.myapplication.activity.HomeComposable
+import com.example.details.RunsScreen
+import com.example.games.GamesScreen
 import com.example.myapplication.activity.Screen
 import com.example.myapplication.activity.items
 
@@ -33,6 +33,8 @@ fun NavGraph(
                         label = { Text(stringResource(screen.resourceId)) },
                         selected = currentRoute == screen.route,
                         onClick = {
+
+                            navController.popBackStack()
                             // This if check gives us a "singleTop" behavior where we do not create a
                             // second instance of the composable if we are already on that destination
                             if (currentRoute != screen.route) {
@@ -44,9 +46,9 @@ fun NavGraph(
             }
         }
     ) {
-        NavHost(navController, startDestination = Screen.Games.route) {
-            composable(Screen.Games.route) { HomeComposable(navController) }
-            composable(Screen.Runs.route) { Runs() }
+        NavHost(navController, startDestination = Screen.Runs.route) {
+            composable(Screen.Runs.route) { RunsScreen() }
+            composable(Screen.Games.route) { GamesScreen() }
         }
     }
 }

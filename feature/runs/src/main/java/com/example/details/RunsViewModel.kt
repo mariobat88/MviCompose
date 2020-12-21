@@ -1,12 +1,10 @@
 package com.example.details
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appslabs.framework.MviViewModel
 import com.appslabs.framework.edit
 import com.example.games.GamesRepository
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject

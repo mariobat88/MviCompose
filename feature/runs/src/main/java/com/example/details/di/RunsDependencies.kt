@@ -7,6 +7,6 @@ import dagger.hilt.android.components.ApplicationComponent
 
 @EntryPoint
 @InstallIn(ApplicationComponent::class)
-interface RunsModuleDependencies {
+interface RunsDependencies {
     fun gamesRepository(): GamesRepository
 }
