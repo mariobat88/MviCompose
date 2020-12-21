@@ -1,0 +1,17 @@
+import dependencies.deps
+
+apply from: "$project.rootDir/compose-feature.gradle"
+
+android {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "1.8"
+            freeCompilerArgs += ["-Xallow-jvm-ir-dependencies", "-Xskip-prerelease-check"]
+        }
+    }
+}
+
+dependencies {
+    implementation project(':framework')
+    implementation deps.coil.core
+}

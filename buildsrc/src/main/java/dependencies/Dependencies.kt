@@ -13,6 +13,7 @@ object app {
 
 object versions {
     val appcompat = "1.2.0"
+    val coil = "1.1.0"
     val compose = "1.0.0-alpha08"
     val composeTooling = "1.0.0-alpha07"
     val composeNavigation = "1.0.0-alpha03"
@@ -22,6 +23,7 @@ object versions {
     val hiltViewModel = "1.0.0-alpha02"
     val kotlin = "1.4.20"
     val material = "1.2.1"
+    val moshi = "1.11.0"
     val retrofit = "2.9.0"
     val retrofitInterceptor = "4.9.0"
 }
@@ -60,6 +62,10 @@ object deps {
         val navigation = "androidx.navigation:navigation-compose:${versions.composeNavigation}"
     }
 
+    object coil {
+        val core = "io.coil-kt:coil:${versions.coil}"
+    }
+
     object hilt {
         val core = "com.google.dagger:hilt-android:${versions.hilt}}"
         val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hiltViewModel}}"
@@ -69,5 +75,10 @@ object deps {
         val core = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
         val logging = "com.squareup.okhttp3:logging-interceptor:${versions.retrofitInterceptor}"
         val moshi = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+    }
+
+    object moshi {
+        val core = "com.squareup.moshi:moshi:${versions.moshi}"
+        val compiler = "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
     }
 }

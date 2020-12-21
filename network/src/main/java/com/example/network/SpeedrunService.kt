@@ -8,5 +8,5 @@ import retrofit2.http.Query
 interface SpeedrunService {
 
     @GET("/api/v1/games")
-    fun getGames(@Query("offset") offset: Int): Call<GamesResponse>
+    suspend fun getGames(@Query("offset") offset: Int): GamesResponse
 }

@@ -14,7 +14,7 @@ class GamesRepositoryImpl @Inject constructor(
 
     override suspend fun getGames(): SpeedrunGames {
         return withContext(Dispatchers.IO) {
-            speedrunService.getGames(0).execute().body()?.toSpeedrunGames()!!
+            speedrunService.getGames(0).toSpeedrunGames()
         }
     }
 

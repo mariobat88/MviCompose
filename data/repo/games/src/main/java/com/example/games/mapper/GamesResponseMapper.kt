@@ -1,5 +1,6 @@
 package com.example.games.mapper
 
+import android.util.Log
 import com.example.common.model.Asset
 import com.example.common.model.LinksItem
 import com.example.games.model.SpeedrunGames
@@ -7,6 +8,7 @@ import com.example.network.model.GamesResponse
 import com.example.network.model.commons.LinksItemResponse
 
 fun GamesResponse.toSpeedrunGames(): SpeedrunGames {
+    Log.d("BATBAT2", toString())
     return SpeedrunGames(
         pagination = pagination?.toPagination(),
         data = data?.map { it?.toDataItem() }
@@ -74,62 +76,22 @@ private fun GamesResponse.DataItem.Names.toNames(): SpeedrunGames.DataItem.Names
 
 private fun GamesResponse.DataItem.Assets.toAssets(): SpeedrunGames.DataItem.Assets {
     return SpeedrunGames.DataItem.Assets(
-        coverSmall = coverSmall?.toCover(),
-        trophy1st = trophy1st?.toTrophy(),
-        background = background?.toBackground(),
-        coverMedium = coverMedium?.toCover(),
-        icon = icon?.toIcon(),
-        trophy2nd = trophy2nd?.toTrophy(),
-        trophy4th = trophy4th?.toTrophy(),
-        logo = logo?.toLogo(),
-        trophy3rd = trophy3rd?.toTrophy(),
-        foreground = foreground?.toForeground(),
-        coverTiny = coverTiny?.toCover(),
-        coverLarge = coverLarge?.toCover(),
+        coverSmall = coverSmall?.toAsset(),
+        trophy1st = trophy1st?.toAsset(),
+        background = background?.toAsset(),
+        coverMedium = coverMedium?.toAsset(),
+        icon = icon?.toAsset(),
+        trophy2nd = trophy2nd?.toAsset(),
+        trophy4th = trophy4th?.toAsset(),
+        logo = logo?.toAsset(),
+        trophy3rd = trophy3rd?.toAsset(),
+        foreground = foreground?.toAsset(),
+        coverTiny = coverTiny?.toAsset(),
+        coverLarge = coverLarge?.toAsset(),
     )
 }
 
-private fun GamesResponse.DataItem.Cover.toCover(): Asset {
-    return Asset(
-        width = width,
-        uri = uri,
-        height = height
-    )
-}
-
-private fun GamesResponse.DataItem.Trophy.toTrophy(): Asset {
-    return Asset(
-        width = width,
-        uri = uri,
-        height = height
-    )
-}
-
-private fun GamesResponse.DataItem.Foreground.toForeground(): Asset {
-    return Asset(
-        width = width,
-        uri = uri,
-        height = height
-    )
-}
-
-private fun GamesResponse.DataItem.Background.toBackground(): Asset {
-    return Asset(
-        width = width,
-        uri = uri,
-        height = height
-    )
-}
-
-private fun GamesResponse.DataItem.Icon.toIcon(): Asset {
-    return Asset(
-        width = width,
-        uri = uri,
-        height = height
-    )
-}
-
-private fun GamesResponse.DataItem.Logo.toLogo(): Asset {
+private fun GamesResponse.DataItem.Assets.Asset.toAsset(): Asset {
     return Asset(
         width = width,
         uri = uri,
