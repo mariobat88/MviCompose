@@ -1,5 +1,7 @@
 package com.example.games
 
+import com.example.games.model.SpeedrunGames
+
 interface GamesRepository {
-    suspend fun getGames(): Any
+    suspend fun getGames(): SpeedrunGames
 }

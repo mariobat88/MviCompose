@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
+import androidx.ui.tooling.preview.Preview
 import com.example.myapplication.R
 import kotlinx.coroutines.launch
 

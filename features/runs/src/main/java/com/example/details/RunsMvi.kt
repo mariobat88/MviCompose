@@ -1,9 +1,10 @@
 package com.example.details
 
 import com.appslabs.framework.Mvi
+import com.example.games.model.SpeedrunGames
 
 interface RunsMvi {
     data class ViewState(
-        val title: String = "Hello Details",
+        val games: List<SpeedrunGames.DataItem>? = null
     ) : Mvi.MviViewState
 }

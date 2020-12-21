@@ -5,18 +5,18 @@ import java.lang.System;
 @kotlin.Metadata(mv = {1, 4, 1}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\bf\u0018\u00002\u00020\u0001:\u0001\u0002\u00a8\u0006\u0003"}, d2 = {"Lcom/example/details/RunsMvi;", "", "ViewState", "_features_runs"})
 public abstract interface RunsMvi {
     
-    @kotlin.Metadata(mv = {1, 4, 1}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u000f\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003H\u00c6\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003H\u00c6\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u00d6\u0003J\t\u0010\r\u001a\u00020\u000eH\u00d6\u0001J\t\u0010\u000f\u001a\u00020\u0003H\u00d6\u0001R\u0011\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006\u00a8\u0006\u0010"}, d2 = {"Lcom/example/details/RunsMvi$ViewState;", "Lcom/appslabs/framework/Mvi$MviViewState;", "title", "", "(Ljava/lang/String;)V", "getTitle", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "_features_runs"})
+    @kotlin.Metadata(mv = {1, 4, 1}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0087\b\u0018\u00002\u00020\u0001B\u0017\u0012\u0010\b\u0002\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003\u00a2\u0006\u0002\u0010\u0005J\u0011\u0010\b\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u00c6\u0003J\u001b\u0010\t\u001a\u00020\u00002\u0010\b\u0002\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u00c6\u0001J\u0013\u0010\n\u001a\u00020\u000b2\b\u0010\f\u001a\u0004\u0018\u00010\rH\u00d6\u0003J\t\u0010\u000e\u001a\u00020\u000fH\u00d6\u0001J\t\u0010\u0010\u001a\u00020\u0011H\u00d6\u0001R\u0019\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007\u00a8\u0006\u0012"}, d2 = {"Lcom/example/details/RunsMvi$ViewState;", "Lcom/appslabs/framework/Mvi$MviViewState;", "games", "", "Lcom/example/games/model/SpeedrunGames$DataItem;", "(Ljava/util/List;)V", "getGames", "()Ljava/util/List;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "", "_features_runs"})
     public static final class ViewState implements com.appslabs.framework.Mvi.MviViewState {
-        @org.jetbrains.annotations.NotNull()
-        private final java.lang.String title = null;
+        @org.jetbrains.annotations.Nullable()
+        private final java.util.List<com.example.games.model.SpeedrunGames.DataItem> games = null;
         
-        @org.jetbrains.annotations.NotNull()
-        public final java.lang.String getTitle() {
+        @org.jetbrains.annotations.Nullable()
+        public final java.util.List<com.example.games.model.SpeedrunGames.DataItem> getGames() {
             return null;
         }
         
-        public ViewState(@org.jetbrains.annotations.NotNull()
-        java.lang.String title) {
+        public ViewState(@org.jetbrains.annotations.Nullable()
+        java.util.List<com.example.games.model.SpeedrunGames.DataItem> games) {
             super();
         }
         
@@ -24,14 +24,14 @@ public abstract interface RunsMvi {
             super();
         }
         
-        @org.jetbrains.annotations.NotNull()
-        public final java.lang.String component1() {
+        @org.jetbrains.annotations.Nullable()
+        public final java.util.List<com.example.games.model.SpeedrunGames.DataItem> component1() {
             return null;
         }
         
         @org.jetbrains.annotations.NotNull()
-        public final com.example.details.RunsMvi.ViewState copy(@org.jetbrains.annotations.NotNull()
-        java.lang.String title) {
+        public final com.example.details.RunsMvi.ViewState copy(@org.jetbrains.annotations.Nullable()
+        java.util.List<com.example.games.model.SpeedrunGames.DataItem> games) {
             return null;
         }
         

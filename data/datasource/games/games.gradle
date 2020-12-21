@@ -1,5 +1,6 @@
 apply from: "$project.rootDir/datasource.gradle"
 
 dependencies {
+    implementation project(':network')
     implementation project(':data:repo:games')
 }
