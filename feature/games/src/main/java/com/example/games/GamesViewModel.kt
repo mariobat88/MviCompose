@@ -20,7 +20,8 @@ class GamesViewModel @Inject constructor(
                 .onSuccess { speedrunGames ->
                     viewState.edit {
                         it.copy(
-                            games = speedrunGames.data?.filterNotNull()!!
+                            games = speedrunGames.data?.filterNotNull()!!,
+                            isLoading = false
                         )
                     }
                 }

@@ -5,6 +5,7 @@ import com.example.games.model.SpeedrunGames
 
 interface GamesMvi {
     data class ViewState(
-        val games: List<SpeedrunGames.DataItem>? = null
+        val games: List<SpeedrunGames.DataItem>? = null,
+        val isLoading: Boolean = true
     ) : Mvi.MviViewState
 }
