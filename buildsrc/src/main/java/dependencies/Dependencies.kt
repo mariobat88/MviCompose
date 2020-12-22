@@ -3,82 +3,82 @@
 package dependencies
 
 object app {
-    val applicationId = "com.example.myapplication"
-    val buildTools = "28.0.3"
+    const val applicationId = "com.example.myapplication"
+    const val buildTools = "28.0.3"
 
-    val compileSdk = 30
-    val minSdk = 21
-    val targetSdk = compileSdk
+    const val compileSdk = 30
+    const val minSdk = 21
+    const val targetSdk = compileSdk
 }
 
 object versions {
-    val appcompat = "1.2.0"
-    val coil = "1.1.0"
-    val compose = "1.0.0-alpha08"
-    val composeTooling = "1.0.0-alpha07"
-    val composeNavigation = "1.0.0-alpha03"
-    val coroutines = "1.4.2"
-    val gradle = "4.2.0-beta02"
-    val hilt = "2.28-alpha"
-    val hiltViewModel = "1.0.0-alpha02"
-    val kotlin = "1.4.20"
-    val material = "1.2.1"
-    val moshi = "1.11.0"
-    val retrofit = "2.9.0"
-    val retrofitInterceptor = "4.9.0"
+    const val appcompat = "1.2.0"
+    const val coil = "1.1.0"
+    const val compose = "1.0.0-alpha09"
+    const val composeTooling = "1.0.0-alpha07"
+    const val composeNavigation = "1.0.0-alpha03"
+    const val coroutines = "1.4.2"
+    const val gradle = "4.2.0-beta02"
+    const val hilt = "2.28-alpha"
+    const val hiltViewModel = "1.0.0-alpha02"
+    const val kotlin = "1.4.21"
+    const val material = "1.2.1"
+    const val moshi = "1.11.0"
+    const val retrofit = "2.9.0"
+    const val retrofitInterceptor = "4.9.0"
 }
 
 object plugin {
     object android {
-        val gradle = "com.android.tools.build:gradle:${versions.gradle}"
-        val hilt = "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}"
+        const val gradle = "com.android.tools.build:gradle:${versions.gradle}"
+        const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}"
     }
 
     object kotlin {
-        val gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        const val gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     }
 }
 
 object deps {
-    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     object android {
-        val appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
-        val material = "com.google.android.material:material:${versions.material}"
+        const val appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
+        const val material = "com.google.android.material:material:${versions.material}"
     }
 
     object coroutines {
-        val core = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
     }
 
     object compose {
-        val ui = "androidx.compose.ui:ui:${versions.compose}"
-        val tooling = "androidx.ui:ui-tooling:${versions.composeTooling}"
-        val foundation = "androidx.compose.foundation:foundation:${versions.compose}"
-        val material = "androidx.compose.material:material:${versions.compose}"
-        val materialIconsCore = "androidx.compose.material:material-icons-core:${versions.compose}"
-        val materialIconsCoreExt =
+        const val ui = "androidx.compose.ui:ui:${versions.compose}"
+        const val tooling = "androidx.ui:ui-tooling:${versions.composeTooling}"
+        const val foundation = "androidx.compose.foundation:foundation:${versions.compose}"
+        const val material = "androidx.compose.material:material:${versions.compose}"
+        const val materialIconsCore = "androidx.compose.material:material-icons-core:${versions.compose}"
+        const val materialIconsCoreExt =
             "androidx.compose.material:material-icons-extended:${versions.compose}"
-        val navigation = "androidx.navigation:navigation-compose:${versions.composeNavigation}"
+        const val navigation = "androidx.navigation:navigation-compose:${versions.composeNavigation}"
     }
 
     object coil {
-        val core = "io.coil-kt:coil:${versions.coil}"
+        const val core = "io.coil-kt:coil:${versions.coil}"
     }
 
     object hilt {
-        val core = "com.google.dagger:hilt-android:${versions.hilt}}"
-        val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hiltViewModel}}"
+        const val core = "com.google.dagger:hilt-android:${versions.hilt}}"
+        const val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hiltViewModel}}"
     }
 
     object retrofit {
-        val core = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
-        val logging = "com.squareup.okhttp3:logging-interceptor:${versions.retrofitInterceptor}"
-        val moshi = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+        const val core = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+        const val logging = "com.squareup.okhttp3:logging-interceptor:${versions.retrofitInterceptor}"
+        const val moshi = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
     }
 
     object moshi {
-        val core = "com.squareup.moshi:moshi:${versions.moshi}"
-        val compiler = "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+        const val core = "com.squareup.moshi:moshi:${versions.moshi}"
+        const val compiler = "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
     }
 }

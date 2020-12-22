@@ -1,5 +1,6 @@
 import dependencies.app
 import dependencies.deps
+import dependencies.versions
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
@@ -24,8 +25,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerVersion '1.4.20'
-        kotlinCompilerExtensionVersion '1.0.0-alpha08'
+        kotlinCompilerVersion versions.kotlin
+        kotlinCompilerExtensionVersion versions.compose
     }
 
     buildTypes {

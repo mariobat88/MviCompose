@@ -12,7 +12,10 @@ interface ViewModelComponent<VM : ViewModel> {
 
 @Composable
 inline fun <reified VM : ViewModel> viewModelFromComponent(component: ViewModelComponent<VM>): VM {
-    return ViewModelProvider(AmbientViewModelStoreOwner.current, SpeedrunViewModelFactory(component)).get(VM::class.java)
+    return ViewModelProvider(
+        AmbientViewModelStoreOwner.current,
+        SpeedrunViewModelFactory(component)
+    ).get(VM::class.java)
 }
 
 class SpeedrunViewModelFactory(private val component: ViewModelComponent<*>) : Factory {
