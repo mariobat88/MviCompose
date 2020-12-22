@@ -3,6 +3,7 @@ package com.example.details
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -26,28 +27,31 @@ fun RunsScreen() {
 
     MaterialTheme {
         if (viewState.games?.isNullOrEmpty() == false) {
-            LazyColumnFor(items = viewState.games) {
-                val asset = it.assets?.getCover()
+            LazyColumn {
+                items(viewState.games) {
+                    val asset = it.assets?.getCover()
 
-                val imageModifier = Modifier
-                    .width(150.dp)
-                    .height(150.dp)
+                    val imageModifier = Modifier
+                        .width(150.dp)
+                        .height(150.dp)
 
-                val image = loadImage(asset?.uri ?: "", asset?.width, asset?.height, imageModifier)
-                image.value?.let { bitmap ->
-                    Image(
-                        bitmap = bitmap.asImageBitmap(),
-                        modifier = imageModifier,
-                        contentScale = ContentScale.Crop
+                    val image =
+                        loadImage(asset?.uri ?: "", asset?.width, asset?.height, imageModifier)
+                    image.value?.let { bitmap ->
+                        Image(
+                            bitmap = bitmap.asImageBitmap(),
+                            modifier = imageModifier,
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+
+                    Text(
+                        text = it.names?.international ?: "",
+                        style = MaterialTheme.typography.h6,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
-
-                Text(
-                    text = it.names?.international ?: "",
-                    style = MaterialTheme.typography.h6,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
-                )
             }
         }
     }
