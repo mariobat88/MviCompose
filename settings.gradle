@@ -8,6 +8,7 @@ include ':feature:games'
 include ':feature:runs'
 include ':framework'
 include ':network'
+include ':resources'
 include ':ui'
 
 def configureBuildFiles(ProjectDescriptor project) {

@@ -1,10 +1,8 @@
 package com.example.games
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
@@ -25,7 +23,8 @@ import com.example.ui.loadImage
 
 @Composable
 fun GamesScreen() {
-    val viewModel: GamesViewModel = viewModelFromComponent(GamesComponent(AmbientContext.current.applicationContext))
+    val viewModel: GamesViewModel =
+        viewModelFromComponent(GamesComponent(AmbientContext.current.applicationContext))
     val viewState = viewModel.viewState.collectAsState().value
 
     MaterialTheme {
@@ -38,7 +37,7 @@ fun GamesScreen() {
 }
 
 @Composable
-fun Loading(){
+fun Loading() {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
@@ -52,14 +51,29 @@ fun Loading(){
 @Composable
 fun GamesList(games: List<SpeedrunGames.DataItem>?) {
     if (games?.isNullOrEmpty() == false) {
-        LazyColumnFor(items = games) {
-            val asset = it.assets?.getCover()
+        LazyColumn {
+            items(games) {
+                GameRow(it)
+            }
+        }
+    }
+}
+
+
+@Composable
+fun GameRow(gameData: SpeedrunGames.DataItem) {
+    Column(
+        modifier = Modifier.preferredHeight(200.dp)
+    ) {
+        Row {
+            val asset = gameData.assets?.getCover()
 
             val imageModifier = Modifier
                 .width(150.dp)
                 .height(150.dp)
 
-            val image = loadImage(asset?.uri ?: "", asset?.width, asset?.height, imageModifier)
+            val image =
+                loadImage(asset?.uri ?: "", asset?.width, asset?.height, imageModifier)
             image.value?.let { bitmap ->
                 Image(
                     bitmap = bitmap.asImageBitmap(),
@@ -69,7 +83,7 @@ fun GamesList(games: List<SpeedrunGames.DataItem>?) {
             }
 
             Text(
-                text = it.names?.international ?: "",
+                text = gameData.names?.international ?: "",
                 style = MaterialTheme.typography.h6,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis

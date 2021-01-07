@@ -18,7 +18,7 @@ object versions {
     const val composeTooling = "1.0.0-alpha07"
     const val composeNavigation = "1.0.0-alpha03"
     const val coroutines = "1.4.2"
-    const val gradle = "4.2.0-beta02"
+    const val gradle = "4.2.0-beta03"
     const val hilt = "2.28-alpha"
     const val hiltViewModel = "1.0.0-alpha02"
     const val kotlin = "1.4.21"

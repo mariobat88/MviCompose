@@ -11,6 +11,7 @@ android {
 
 dependencies {
     implementation project(':ui')
+    implementation project(':resources')
     implementation project(':data:repo:games')
     implementation project(':framework')
     //For some reason we can't use hilt via deps
